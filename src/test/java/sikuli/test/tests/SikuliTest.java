@@ -1,6 +1,8 @@
 package sikuli.test.tests;
 
+import org.testng.Assert;
 import sikuli.test.tests.forms.MainForm;
+import sikulidriver.MainArea;
 import webdriver.BaseTest;
 
 public class SikuliTest extends BaseTest {
@@ -22,5 +24,24 @@ public class SikuliTest extends BaseTest {
         logger.step(4);
         logger.info("Go to 'Dining room'");
         mainForm.sidebar.category.openDiningRoomCategory();
+
+        logger.step(5);
+        logger.info("Select drag and drop item and move to the work space");
+        MainArea mainArea = new MainArea();
+        mainArea.dropTableToCenter();
+
+        logger.step(6);
+        Assert.assertTrue(mainArea.isItemMovedToWorkSpace(), "Item hasn't displayed on work space");
+
+        logger.step(7);
+        mainArea.selectItemOnWorkSpace();
+//        ProductProperties productProperties = new ProductProperties();
+//        productProperties.assertProductProperties();
+        mainArea.selectItemOnWorkSpace();
+
+        logger.step(8);
+        mainArea.deteteItem();
+//        SceneProperties sceneProperties = new SceneProperties();
+//        sceneProperties.assertSceneItems();
     }
 }

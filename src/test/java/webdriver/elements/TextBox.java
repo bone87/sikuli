@@ -46,8 +46,8 @@ public class TextBox extends BaseElement {
     }
 
 	/**
-	 * Returns Element type
-	 * @return Element type
+	 * Returns SikuliElement type
+	 * @return SikuliElement type
 	 */
 	protected String getElementType() {
 		return getLoc("loc.text.field");
