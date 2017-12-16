@@ -1,10 +1,10 @@
 package sikulidriver;
 
 public class MainArea {
-    private final SikuliElement tableItem = new SikuliElement("src/test/resources/pic/tableItem.png", "item 'table'");
+    private final SikuliElement tableItem = new SikuliElement("src/test/resources/pic/item.png", "item 'table'");
     private final SikuliElement screenCenter = new SikuliElement("src/test/resources/pic/center.png", "screen center");
     private final SikuliElement btnClose = new SikuliElement("src/test/resources/pic/btnClose.png", "button close");
-    private final SikuliElement itemOnWorkSpace = new SikuliElement("src/test/resources/pic/verifyDropTable.png", "item on work space");
+    private final SikuliElement itemOnWorkSpace = new SikuliElement("src/test/resources/pic/verifyDrop.png", "item on work space");
 
     /**
      * Drag 'tableItem'
