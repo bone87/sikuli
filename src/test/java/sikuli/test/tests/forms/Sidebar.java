@@ -9,7 +9,7 @@ import webdriver.elements.Label;
 
 public class Sidebar extends BaseForm {
     private final String PROPERTY_NAME_CATEGOTY_NAME= "category_name";
-    private final String PROPERTY_NAME_SUB_CATEGOTY_NAME= "category_name";
+    private final String PROPERTY_NAME_SUB_CATEGOTY_NAME= "sub_category_name";
     private final String CATEGORY_NAME= SikuliTest.props.getProperty(PROPERTY_NAME_CATEGOTY_NAME);
     private final String SUB_CATEGORY_NAME= SikuliTest.props.getProperty(PROPERTY_NAME_SUB_CATEGOTY_NAME);
     public SidebarCategory category;
