@@ -12,6 +12,11 @@ public class SikuliTest extends BaseTest {
     private static final String SIKULI_PROPERTIES_FILE = "sikuli_project.properties";
     public static final PropertiesResourceManager props = new PropertiesResourceManager(SIKULI_PROPERTIES_FILE);
 
+    private final String PROPERTY_NAME_CATEGORY_NAME= "category_name";
+    private final String PROPERTY_NAME_SUB_CATEGORY_LINK_ID= "sub_category_link_id";
+    private final String CATEGORY_NAME= SikuliTest.props.getProperty(PROPERTY_NAME_CATEGORY_NAME);
+    private final String LINK_ID= SikuliTest.props.getProperty(PROPERTY_NAME_SUB_CATEGORY_LINK_ID);
+
     @Override
     public void runTest() {
 
@@ -25,11 +30,11 @@ public class SikuliTest extends BaseTest {
 
         logger.step(3);
         logger.info("Open menu 'Furnish your room'");
-        mainForm.sidebar.openFurnishYourRoom();
+        mainForm.sidebar.openCategory(CATEGORY_NAME, LINK_ID);
 
         logger.step(4);
         logger.info("Go to 'Dining room'");
-        mainForm.sidebar.category.openDiningRoomCategory();
+        mainForm.sidebar.category.openCategory(LINK_ID);
 
         logger.step(5);
         logger.info("Select drag and drop item and move to the work space");
@@ -43,7 +48,6 @@ public class SikuliTest extends BaseTest {
         mainArea.selectItemOnWorkSpace();
         ProductProperties productProperties = new ProductProperties();
         productProperties.assertProductPropertiesAreNotEmpty();
-//        mainArea.selectItemOnWorkSpace();
 
         logger.step(8);
         mainArea.deteteItem();

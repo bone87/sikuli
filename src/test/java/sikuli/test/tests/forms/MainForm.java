@@ -9,7 +9,7 @@ public class MainForm extends BaseForm {
     public WelcomeWindow welcomeWindow = new WelcomeWindow();
 
     public MainForm() {
-        super(By.xpath("//div[@id='popin-content-holder']"), "MainForm");
+        super(By.xpath("//div[@id='popin-content-holder']"), "main page");
     }
 
 }

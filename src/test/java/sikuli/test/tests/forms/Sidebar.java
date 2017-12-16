@@ -8,10 +8,6 @@ import webdriver.elements.Button;
 import webdriver.elements.Label;
 
 public class Sidebar extends BaseForm {
-    private final String PROPERTY_NAME_CATEGORY_NAME= "category_name";
-    private final String CATEGORY_NAME= SikuliTest.props.getProperty(PROPERTY_NAME_CATEGORY_NAME);
-    private final String PROPERTY_NAME_SUB_CATEGORY_LINK_ID= "sub_category_link_id";
-    private final String LINK_ID= SikuliTest.props.getProperty(PROPERTY_NAME_SUB_CATEGORY_LINK_ID);
 
     public SidebarCategory category;
     private Button btnCategory;
@@ -22,21 +18,13 @@ public class Sidebar extends BaseForm {
     }
 
     /**
-     * Open category
+     * Open category.
      */
-    private void openCategory(Button btnCategory, String sidebarCategoryName) {
+    public void openCategory(String categoryName, String subcategoryLinkId) {
+        btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, categoryName)), String.format("category: %s", categoryName));
         btnCategory.waitForIsElementPresent();
         btnCategory.clickAndWait();
-        category = new SidebarCategory(sidebarCategoryName);
-    }
-
-    /**
-     * Open category 'Furnish your room'.
-     */
-    public void openFurnishYourRoom() {
-        btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, CATEGORY_NAME)),
-                String.format("category: %s", CATEGORY_NAME));
-        openCategory(btnCategory,LINK_ID);
+        category = new SidebarCategory(subcategoryLinkId);
     }
 
 }
