@@ -1,15 +1,19 @@
 package sikuli.test.tests.forms;
 
 import org.openqa.selenium.By;
+import sikuli.test.tests.SikuliTest;
 import webdriver.BaseForm;
 import webdriver.elements.Button;
 
 public class SidebarCategory extends BaseForm {
 
+    private final String LINK_ID;
+
     private final String btnCategoryStringLocator = "//a[@id='%s']";
 
-    public SidebarCategory(String sideBarCategoryName) {
-        super(By.xpath(String.format("//div[@class='facet-category']//ul[@class='selected']//a[text()='%s']", sideBarCategoryName)), String.format("sidebar category: %s", sideBarCategoryName));
+    public SidebarCategory(String sub_category_link_id) {
+        super(By.xpath(String.format("//a[@id='%s']", sub_category_link_id)), String.format("sidebar category with link id=%s", sub_category_link_id));
+        LINK_ID=sub_category_link_id;
     }
 
     private void openCategory(Button btnCategory) {
@@ -21,7 +25,7 @@ public class SidebarCategory extends BaseForm {
      * Select 'Dining room' and check if items has appeared"
      **/
     public void openDiningRoomCategory() {
-        Button btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, "new-1849")), String.format("link with id=%s", "new-1849"));
+        Button btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, LINK_ID)), String.format("link with id=%s", LINK_ID));
         openCategory(btnCategory);
     }
 
