@@ -30,7 +30,7 @@ public class SceneProperties extends BaseForm {
         for (String itemName : itemsNames) {
             int count = getSceneItemCount(itemName);
             softAssert.assertTrue(count == 0, String.format("Count = %s of scene item with name: '%s' isn't equal 0.", count, itemName));
-            softAssert.assertAll();
         }
+        softAssert.assertAll();
     }
 }

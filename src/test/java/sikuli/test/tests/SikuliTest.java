@@ -39,7 +39,7 @@ public class SikuliTest extends BaseTest {
         mainArea.selectItemOnWorkSpace();
         ProductProperties productProperties = new ProductProperties();
         productProperties.assertProductPropertiesAreNotEmpty();
-        mainArea.selectItemOnWorkSpace();
+//        mainArea.selectItemOnWorkSpace();
 
         logger.step(8);
         mainArea.deteteItem();
