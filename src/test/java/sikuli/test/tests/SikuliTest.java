@@ -2,6 +2,7 @@ package sikuli.test.tests;
 
 import org.testng.Assert;
 import sikuli.test.tests.forms.MainForm;
+import sikuli.test.tests.forms.ProductProperties;
 import sikulidriver.MainArea;
 import webdriver.BaseTest;
 
@@ -35,8 +36,8 @@ public class SikuliTest extends BaseTest {
 
         logger.step(7);
         mainArea.selectItemOnWorkSpace();
-//        ProductProperties productProperties = new ProductProperties();
-//        productProperties.assertProductProperties();
+        ProductProperties productProperties = new ProductProperties();
+        productProperties.assertProductProperties();
         mainArea.selectItemOnWorkSpace();
 
         logger.step(8);
