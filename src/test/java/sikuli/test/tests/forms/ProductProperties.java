@@ -20,7 +20,7 @@ public class ProductProperties extends BaseForm {
         super(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "Product properties");
     }
 
-    public Product getProduct() {
+    private Product getProduct() {
         String name = productName.getText();
         String dimensions = productDimension.getText();
         float width = getValueOfDimension(patternWidth, dimensions);
@@ -32,7 +32,7 @@ public class ProductProperties extends BaseForm {
     /**
      * Return float value of dimension.
      **/
-    public float getValueOfDimension(String dimensionNamePattern, String dimensionsString) {
+    private float getValueOfDimension(String dimensionNamePattern, String dimensionsString) {
         String stringValue = StringUtils.findPatternInString(dimensionNamePattern, dimensionsString);
         return Float.parseFloat(stringValue);
     }
