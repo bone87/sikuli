@@ -3,6 +3,7 @@ package sikuli.test.tests;
 import org.testng.Assert;
 import sikuli.test.tests.forms.MainForm;
 import sikuli.test.tests.forms.ProductProperties;
+import sikuli.test.tests.forms.SceneProperties;
 import sikulidriver.MainArea;
 import webdriver.BaseTest;
 
@@ -37,12 +38,12 @@ public class SikuliTest extends BaseTest {
         logger.step(7);
         mainArea.selectItemOnWorkSpace();
         ProductProperties productProperties = new ProductProperties();
-        productProperties.assertProductProperties();
+        productProperties.assertProductPropertiesAreNotEmpty();
         mainArea.selectItemOnWorkSpace();
 
         logger.step(8);
         mainArea.deteteItem();
-//        SceneProperties sceneProperties = new SceneProperties();
-//        sceneProperties.assertSceneItems();
+        SceneProperties sceneProperties = new SceneProperties();
+        sceneProperties.assertSceneItemsAreEmpty();
     }
 }

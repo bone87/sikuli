@@ -38,9 +38,9 @@ public class ProductProperties extends BaseForm {
     }
 
     /**
-     * Check if all dimensions isn't zero
+     * Check if all product properties isn't empty.
      **/
-    public void assertProductProperties() {
+    public void assertProductPropertiesAreNotEmpty() {
         Product product = getProduct();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(product.getName().length() > 0, "Product name is empty.");
