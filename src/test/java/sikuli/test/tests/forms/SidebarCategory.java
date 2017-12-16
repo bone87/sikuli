@@ -13,6 +13,9 @@ public class SidebarCategory extends BaseForm {
         super(By.xpath(String.format("//a[@id='%s']", sub_category_link_id)), String.format("sidebar category with link id=%s", sub_category_link_id));
     }
 
+    /**
+     * Open subcategory
+     */
     public void openCategory(String category_link_id) {
         Button btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, category_link_id)), String.format("link with id=%s", category_link_id));
         btnCategory.waitForIsElementPresent();

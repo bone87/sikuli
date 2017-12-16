@@ -14,11 +14,10 @@ public class WelcomeWindow extends BaseForm {
     }
 
     /**
-     * Close the 'Welcome window' and check if window is closed
+     * Close the 'Welcome window'
      **/
     public void closeWelcomeWindow() {
         btnClose.clickAndWait();
-//        Assert.assertFalse(btnClose.isPresent(), "Welcome window hasn't closed");
     }
 
 

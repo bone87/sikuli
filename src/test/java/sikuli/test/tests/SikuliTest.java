@@ -10,12 +10,14 @@ import webdriver.PropertiesResourceManager;
 
 public class SikuliTest extends BaseTest {
     private static final String SIKULI_PROPERTIES_FILE = "sikuli_project.properties";
-    public static final PropertiesResourceManager props = new PropertiesResourceManager(SIKULI_PROPERTIES_FILE);
+    private final PropertiesResourceManager props = new PropertiesResourceManager(SIKULI_PROPERTIES_FILE);
 
-    private final String PROPERTY_NAME_CATEGORY_NAME= "category_name";
-    private final String PROPERTY_NAME_SUB_CATEGORY_LINK_ID= "sub_category_link_id";
-    private final String CATEGORY_NAME= SikuliTest.props.getProperty(PROPERTY_NAME_CATEGORY_NAME);
-    private final String LINK_ID= SikuliTest.props.getProperty(PROPERTY_NAME_SUB_CATEGORY_LINK_ID);
+    private final String PROPERTY_NAME_CATEGORY_NAME = "category_name";
+    private final String PROPERTY_NAME_SUB_CATEGORY_LINK_ID = "sub_category_link_id";
+    private final String PROPERTY_NAME_PATH_TO_PIC_FOLDER = "path_to_pic_folder";
+    private final String CATEGORY_NAME = props.getProperty(PROPERTY_NAME_CATEGORY_NAME);
+    private final String LINK_ID = props.getProperty(PROPERTY_NAME_SUB_CATEGORY_LINK_ID);
+    private final String PATH_TO_PIC_FOLDER = props.getProperty(PROPERTY_NAME_PATH_TO_PIC_FOLDER);
 
     @Override
     public void runTest() {
@@ -38,18 +40,21 @@ public class SikuliTest extends BaseTest {
 
         logger.step(5);
         logger.info("Select drag and drop item and move to the work space");
-        MainArea mainArea = new MainArea();
+        MainArea mainArea = new MainArea(PATH_TO_PIC_FOLDER);
         mainArea.dropTableToCenter();
 
         logger.step(6);
+        logger.info("Check for element is correctly displayed on the work space");
         Assert.assertTrue(mainArea.isItemMovedToWorkSpace(), "Item hasn't displayed on work space");
 
         logger.step(7);
+        logger.info("Click the element and check data");
         mainArea.selectItemOnWorkSpace();
         ProductProperties productProperties = new ProductProperties();
         productProperties.assertProductPropertiesAreNotEmpty();
 
         logger.step(8);
+        logger.info("Delete element");
         mainArea.deteteItem();
         SceneProperties sceneProperties = new SceneProperties();
         sceneProperties.assertSceneItemsAreEmpty();

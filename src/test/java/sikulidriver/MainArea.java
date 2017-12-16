@@ -1,20 +1,23 @@
 package sikulidriver;
 
-import sikuli.test.tests.SikuliTest;
+import org.testng.Assert;
 
 public class MainArea {
-    private final String PROPERTY_NAME_PATH_TO_PIC_FOLDER = "path_to_pic_folder";
-    private final String PATH_TO_PIC_FOLDER = SikuliTest.props.getProperty(PROPERTY_NAME_PATH_TO_PIC_FOLDER);
-    private final SikuliElement tableItem = new SikuliElement(PATH_TO_PIC_FOLDER.concat("item.png"), "item 'table'");
-    private final SikuliElement screenCenter = new SikuliElement(PATH_TO_PIC_FOLDER.concat("center.png"), "screen center");
-    private final SikuliElement btnClose = new SikuliElement(PATH_TO_PIC_FOLDER.concat("btnClose.png"), "button close");
-    private final SikuliElement itemOnWorkSpace = new SikuliElement(PATH_TO_PIC_FOLDER.concat("verifyDrop.png"), "item on work space");
+    private String path_to_pic_folder;
+    private SikuliElement tableItem = new SikuliElement(path_to_pic_folder.concat("item.png"), "item");
+    private SikuliElement screenCenter = new SikuliElement(path_to_pic_folder.concat("center.png"), "screen center");
+    private SikuliElement btnClose = new SikuliElement(path_to_pic_folder.concat("btnClose.png"), "button close");
+    private SikuliElement itemOnWorkSpace = new SikuliElement(path_to_pic_folder.concat("verifyDrop.png"), "item on work space");
+
+    public MainArea(String path_to_pic_folder) {
+        Assert.assertNotNull(path_to_pic_folder, "Missing the path to pic folder");
+        this.path_to_pic_folder = path_to_pic_folder;
+    }
 
     /**
      * Drag 'tableItem' and drop to 'screenCenter'
      **/
     public void dropTableToCenter() {
-        System.out.println(String.format(PATH_TO_PIC_FOLDER,"item.png"));
         tableItem.dragItem();
         tableItem.dropItemAt(screenCenter.getItem());
     }
