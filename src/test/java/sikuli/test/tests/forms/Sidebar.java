@@ -14,17 +14,15 @@ public class Sidebar extends BaseForm {
     private final String LINK_ID= SikuliTest.props.getProperty(PROPERTY_NAME_SUB_CATEGORY_LINK_ID);
 
     public SidebarCategory category;
-    public Button btnCategory;
+    private Button btnCategory;
     private final String btnCategoryStringLocator = "//div[@id='sidebar']//a[@title='%s']";
 
-    public Sidebar() {
+    Sidebar() {
         super(By.xpath("//div[@id='sidebar']"), "sidebar");
     }
 
     /**
      * Open category
-     * @param btnCategory
-     * @param sidebarCategoryName
      */
     private void openCategory(Button btnCategory, String sidebarCategoryName) {
         btnCategory.waitForIsElementPresent();

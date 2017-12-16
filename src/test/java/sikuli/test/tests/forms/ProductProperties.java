@@ -7,17 +7,15 @@ import utils.StringUtils;
 import webdriver.BaseForm;
 import webdriver.elements.Label;
 
-import static org.apache.log4j.NDC.getDepth;
-
 public class ProductProperties extends BaseForm {
-    private final Label productName = new Label(By.xpath("//div[@id='view-component-info']//div[@class='component-data available']//p[@class='name']"), "Product name");
-    private final Label productDimension = new Label(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "Product dimension");
+    private final Label productName = new Label(By.xpath("//div[@id='view-component-info']//div[@class='component-data available']//p[@class='name']"), "product name");
+    private final Label productDimension = new Label(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "product dimensions");
     private final String patternWidth = "W(.+) m ";
     private final String patternDepth = "D(.+) m$";
     private final String patternHeight = "^H(.+) m x W";
 
     public ProductProperties() {
-        super(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "Product properties");
+        super(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "product properties");
     }
 
     private Product getProduct() {
@@ -38,7 +36,7 @@ public class ProductProperties extends BaseForm {
     }
 
     /**
-     * Check if all product properties isn't empty.
+     * Check if all product properties aren't empty.
      **/
     public void assertProductPropertiesAreNotEmpty() {
         Product product = getProduct();
