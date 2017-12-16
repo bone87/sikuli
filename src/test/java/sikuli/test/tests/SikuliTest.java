@@ -10,7 +10,7 @@ import webdriver.PropertiesResourceManager;
 
 public class SikuliTest extends BaseTest {
     public static final String SIKULI_PROPERTIES_FILE = "sikuli_project.properties";
-    private static final PropertiesResourceManager props = new PropertiesResourceManager(SIKULI_PROPERTIES_FILE);
+    public static final PropertiesResourceManager props = new PropertiesResourceManager(SIKULI_PROPERTIES_FILE);
 
     @Override
     public void runTest() {
@@ -27,10 +27,10 @@ public class SikuliTest extends BaseTest {
         logger.info("Open menu 'Furnish your room'");
         mainForm.sidebar.openFurnishYourRoom();
 
-//        logger.step(4);
-//        logger.info("Go to 'Dining room'");
-//        mainForm.sidebar.category.openDiningRoomCategory();
-//
+        logger.step(4);
+        logger.info("Go to 'Dining room'");
+        mainForm.sidebar.category.openDiningRoomCategory();
+
 //        logger.step(5);
 //        logger.info("Select drag and drop item and move to the work space");
 //        MainArea mainArea = new MainArea();

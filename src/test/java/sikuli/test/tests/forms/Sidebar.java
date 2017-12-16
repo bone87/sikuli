@@ -8,7 +8,10 @@ import webdriver.elements.Button;
 import webdriver.elements.Label;
 
 public class Sidebar extends BaseForm {
-    private static final String CATEGORY_NAME= "category_name";
+    private final String PROPERTY_NAME_CATEGOTY_NAME= "category_name";
+    private final String PROPERTY_NAME_SUB_CATEGOTY_NAME= "category_name";
+    private final String CATEGORY_NAME= SikuliTest.props.getProperty(PROPERTY_NAME_CATEGOTY_NAME);
+    private final String SUB_CATEGORY_NAME= SikuliTest.props.getProperty(PROPERTY_NAME_SUB_CATEGOTY_NAME);
     public SidebarCategory category;
     public Button btnCategory;
     private final String btnCategoryStringLocator = "//div[@id='sidebar']//a[@title='%s']";
@@ -32,9 +35,9 @@ public class Sidebar extends BaseForm {
      * Open category 'Furnish your room'.
      */
     public void openFurnishYourRoom() {
-        btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, System.getProperty(SikuliTest.SIKULI_PROPERTIES_FILE, CATEGORY_NAME))),
-                String.format("category: %s", "furnish your room"));
-        openCategory(btnCategory,"Dining room");
+        btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, CATEGORY_NAME)),
+                String.format("category: %s", CATEGORY_NAME));
+        openCategory(btnCategory,SUB_CATEGORY_NAME);
     }
 
 }
