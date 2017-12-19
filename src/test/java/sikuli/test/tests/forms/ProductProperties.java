@@ -3,8 +3,8 @@ package sikuli.test.tests.forms;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 import sikuli.test.tests.models.Product;
-import utils.StringUtils;
 import webdriver.BaseForm;
+import webdriver.CommonFunctions;
 import webdriver.elements.Label;
 
 public class ProductProperties extends BaseForm {
@@ -31,7 +31,7 @@ public class ProductProperties extends BaseForm {
      * Return float value of dimension.
      **/
     private float getValueOfDimension(String dimensionNamePattern, String dimensionsString) {
-        String stringValue = StringUtils.findPatternInString(dimensionNamePattern, dimensionsString);
+        String stringValue = CommonFunctions.regexGetMatchGroup(dimensionsString, dimensionNamePattern, 1);
         return Float.parseFloat(stringValue);
     }
 
