@@ -28,7 +28,7 @@ public class SikuliTest extends BaseTest {
 
         logger.step(2);
         logger.info("Close the dialog window 'Welcome to roomstyler 3D home planner'");
-        mainForm.welcomeWindow.closeWelcomeWindow();
+        mainForm.welcomeWindow.btnClose.clickAndWait();
 
         logger.step(3);
         logger.info("Open menu 'Furnish your room'");
