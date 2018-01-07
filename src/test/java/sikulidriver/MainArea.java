@@ -32,7 +32,7 @@ public class MainArea {
      * Check if 'itemOnWorkSpace' is displayed on work space
      **/
     public boolean isItemMovedToWorkSpace(FurnitureItem furnitureItem) {
-        return furnitureItem.getItemImage().isItemDisplay();
+        return furnitureItem.getItemOnWorkPlaceImage().isItemDisplay();
     }
 //
 //
