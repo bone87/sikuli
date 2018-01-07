@@ -34,6 +34,4 @@ public class MainArea {
     public boolean isItemMovedToWorkSpace(FurnitureItem furnitureItem) {
         return furnitureItem.getItemOnWorkPlaceImage().isItemDisplay();
     }
-//
-//
 }
