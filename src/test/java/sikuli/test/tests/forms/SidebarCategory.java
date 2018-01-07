@@ -6,20 +6,17 @@ import webdriver.BaseForm;
 import webdriver.elements.Button;
 
 public class SidebarCategory extends BaseForm {
-
-    private final String btnCategoryStringLocator = "//a[@id='%s']";
-
-    public SidebarCategory(String subCategoryLinkId) {
-        super(By.xpath(String.format("//a[@id='%s']", subCategoryLinkId)), String.format("sidebar category with link id=%s", subCategoryLinkId));
+    private static String BTN_SUB_CATEGORY_STRING_LOCATOR = "//a[@id='%s']";
+    SidebarCategory(String subCategoryName) {
+        super(By.xpath(String.format(BTN_SUB_CATEGORY_STRING_LOCATOR, subCategoryName)), String.format("sidebar category with link id=%s", subCategoryName));
     }
 
     /**
      * Open subcategory
      */
-    public void openCategory(String categoryLinkId) {
-        Button btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, categoryLinkId)), String.format("link with id=%s", categoryLinkId));
+    public void openCategory(String subCategoryLinkId) {
+        Button btnCategory = new Button(By.xpath(String.format(BTN_SUB_CATEGORY_STRING_LOCATOR, subCategoryLinkId)), String.format("link with id=%s", subCategoryLinkId));
         btnCategory.clickAndWait();
     }
-
 
 }
