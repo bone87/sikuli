@@ -37,26 +37,30 @@ public class SikuliTest extends BaseTest {
         logger.step(4);
         logger.info("Go to 'Dining room'");
         mainForm.sidebar.category.openCategory(LINK_ID);
+//
+        logger.step(5);
+        logger.info("Select drag and drop item and move to the work space");
+        MainArea mainArea = new MainArea(PATH_TO_PIC_FOLDER);
+        mainArea.dropTableToCenter();
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        logger.step(6);
+        logger.info("Check for element is correctly displayed on the work space");
+        Assert.assertTrue(mainArea.isItemMovedToWorkSpace(), "Item hasn't displayed on work space");
 
-//        logger.step(5);
-//        logger.info("Select drag and drop item and move to the work space");
-//        MainArea mainArea = new MainArea(PATH_TO_PIC_FOLDER);
-//        mainArea.dropTableToCenter();
-//
-//        logger.step(6);
-//        logger.info("Check for element is correctly displayed on the work space");
-//        Assert.assertTrue(mainArea.isItemMovedToWorkSpace(), "Item hasn't displayed on work space");
-//
-//        logger.step(7);
-//        logger.info("Click the element and check data");
-//        mainArea.selectItemOnWorkSpace();
-//        ProductProperties productProperties = new ProductProperties();
-//        productProperties.assertProductPropertiesAreNotEmpty();
-//
-//        logger.step(8);
-//        logger.info("Delete element");
-//        mainArea.deteteItem();
-//        SceneProperties sceneProperties = new SceneProperties();
-//        sceneProperties.assertSceneItemsAreEmpty();
+        logger.step(7);
+        logger.info("Click the element and check data");
+        mainArea.selectItemOnWorkSpace();
+        ProductProperties productProperties = new ProductProperties();
+        productProperties.assertProductPropertiesAreNotEmpty();
+
+        logger.step(8);
+        logger.info("Delete element");
+        mainArea.deteteItem();
+        SceneProperties sceneProperties = new SceneProperties();
+        sceneProperties.assertSceneItemsAreEmpty();
     }
 }
