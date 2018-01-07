@@ -1,4 +1,4 @@
-package sikuli.test.tests.forms;
+package sikuli.test.tests.enums;
 
 public enum SubCategoryInfo {
     DiningRoom("new-1849");

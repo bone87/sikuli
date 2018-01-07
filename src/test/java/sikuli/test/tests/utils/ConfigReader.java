@@ -1,6 +1,6 @@
 package sikuli.test.tests.utils;
 
-import sikuli.test.tests.forms.SubCategoryInfo;
+import sikuli.test.tests.enums.SubCategoryInfo;
 import webdriver.PropertiesResourceManager;
 
 public class ConfigReader {
@@ -15,7 +15,7 @@ public class ConfigReader {
     private final static String PROPERTY_NAME_MAIN_AREA_CENTER_FILE_NAME = "main_area_center_file_name";
     public static final String CATEGORY_NAME = PROPS.getProperty(PROPERTY_NAME_CATEGORY_NAME);
     public static final String SUB_CATEGORY_NAME = PROPS.getProperty(PROPERTY_NAME_SUB_CATEGORY_NAME);
-    public static final String PATH_TO_PIC_FOLDER = PROPS.getProperty(PROPERTY_NAME_PATH_TO_PIC_FOLDER);
+    private static final String PATH_TO_PIC_FOLDER = PROPS.getProperty(PROPERTY_NAME_PATH_TO_PIC_FOLDER);
     private static final String ITEM_FILE_NAME = PROPS.getProperty(PROPERTY_NAME_ITEM_FILE_NAME);
     private static final String VERIFY_DROP_FILE_NAME = PROPS.getProperty(PROPERTY_NAME_VERIFY_DROP_FILE_NAME);
     private static final String DELETE_ITEM_FILE_NAME = PROPS.getProperty(PROPERTY_NAME_DELETE_ITEM_FILE_NAME);
