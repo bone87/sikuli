@@ -4,7 +4,7 @@ import sikuli.test.tests.models.FurnitureItem;
 import sikuli.test.tests.utils.ConfigReader;
 
 public class MainArea {
-    private SikuliElement areaCenterImage = new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + "mainAreaCenter.png");
+    private SikuliElement areaCenterImage = new SikuliElement(ConfigReader.PATH_TO_MAIN_AREA_CENTER_FILE);
 
     /**
      * Drag 'FurnitureItem' and drop to 'areaCenter'
