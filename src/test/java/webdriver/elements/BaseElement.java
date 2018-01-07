@@ -364,11 +364,6 @@ public abstract class BaseElement extends BaseEntity {
      * Click on an item and wait for the page is loaded
      */
     public void clickAndWait() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         click();
         getBrowser().waitForPageToLoad();
     }
