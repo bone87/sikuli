@@ -35,7 +35,7 @@ public class SikuliTest extends BaseTest {
 
         logger.step(6);
         logger.info("Check for element is correctly displayed on the work space");
-        Assert.assertTrue(mainArea.isItemMovedToWorkSpace(), "Item hasn't displayed on work space");
+        assertEquals("Item hasn't displayed on work space", mainArea.isItemMovedToWorkSpace(), true);
 
         logger.step(7);
         logger.info("Click the element and check data");
@@ -48,5 +48,7 @@ public class SikuliTest extends BaseTest {
         mainArea.deteteItem();
         SceneProperties sceneProperties = new SceneProperties();
         sceneProperties.assertSceneItemsAreEmpty();
+        assertEquals("Item has displayed on work space", mainArea.isItemMovedToWorkSpace(), false);
+
     }
 }

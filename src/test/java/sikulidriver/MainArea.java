@@ -10,10 +10,10 @@ public class MainArea {
 
     public MainArea(String pathToPicFolder) {
         Assert.assertNotNull(pathToPicFolder, "Missing the path to pic folder");
-        tableItem = new SikuliElement(pathToPicFolder.concat("item.png"), "item");
-        screenCenter = new SikuliElement(pathToPicFolder.concat("center.png"), "screen center");
-        btnClose = new SikuliElement(pathToPicFolder.concat("btnClose.png"), "button close");
-        itemOnWorkSpace = new SikuliElement(pathToPicFolder.concat("verifyDrop.png"), "item on work space");
+        tableItem = new SikuliElement(pathToPicFolder.concat("item.png"));
+        screenCenter = new SikuliElement(pathToPicFolder.concat("center.png"));
+        btnClose = new SikuliElement(pathToPicFolder.concat("btnClose.png"));
+        itemOnWorkSpace = new SikuliElement(pathToPicFolder.concat("verifyDrop.png"));
     }
 
     /**
