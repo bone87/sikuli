@@ -8,12 +8,12 @@ public class MainArea {
     private SikuliElement btnClose;
     private SikuliElement itemOnWorkSpace;
 
-    public MainArea(String path_to_pic_folder) {
-        Assert.assertNotNull(path_to_pic_folder, "Missing the path to pic folder");
-        tableItem = new SikuliElement(path_to_pic_folder.concat("item.png"), "item");
-        screenCenter = new SikuliElement(path_to_pic_folder.concat("center.png"), "screen center");
-        btnClose = new SikuliElement(path_to_pic_folder.concat("btnClose.png"), "button close");
-        itemOnWorkSpace = new SikuliElement(path_to_pic_folder.concat("verifyDrop.png"), "item on work space");
+    public MainArea(String pathToPicFolder) {
+        Assert.assertNotNull(pathToPicFolder, "Missing the path to pic folder");
+        tableItem = new SikuliElement(pathToPicFolder.concat("item.png"), "item");
+        screenCenter = new SikuliElement(pathToPicFolder.concat("center.png"), "screen center");
+        btnClose = new SikuliElement(pathToPicFolder.concat("btnClose.png"), "button close");
+        itemOnWorkSpace = new SikuliElement(pathToPicFolder.concat("verifyDrop.png"), "item on work space");
     }
 
     /**

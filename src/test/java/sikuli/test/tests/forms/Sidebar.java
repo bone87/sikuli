@@ -10,8 +10,6 @@ import webdriver.elements.Label;
 public class Sidebar extends BaseForm {
 
     public SidebarCategory category;
-    private Button btnCategory;
-    private final String btnCategoryStringLocator = "//div[@id='sidebar']//a[@title='%s']";
 
     Sidebar() {
         super(By.xpath("//div[@id='sidebar']"), "sidebar");
@@ -21,8 +19,8 @@ public class Sidebar extends BaseForm {
      * Open category.
      */
     public void openCategory(String categoryName, String subcategoryLinkId) {
-        btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, categoryName)), String.format("category: %s", categoryName));
-        btnCategory.waitForIsElementPresent();
+        String btnCategoryStringLocator = "//div[@id='sidebar']//a[@title='%s']";
+        Button btnCategory = new Button(By.xpath(String.format(btnCategoryStringLocator, categoryName)), String.format("category: %s", categoryName));
         btnCategory.clickAndWait();
         category = new SidebarCategory(subcategoryLinkId);
     }
