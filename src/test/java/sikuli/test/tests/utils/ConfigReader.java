@@ -18,6 +18,9 @@ public class ConfigReader {
     public static final String ITEM_FILE_NAME = PROPS.getProperty(PROPERTY_NAME_ITEM_FILE_NAME);
     public static final String VERIFY_DROP_FILE_NAME = PROPS.getProperty(PROPERTY_NAME_VERIFY_DROP_FILE_NAME);
     public static final String DELETE_ITEM_FILE_NAME = PROPS.getProperty(PROPERTY_NAME_DELETE_ITEM_FILE_NAME);
+    public static final String PATH_TO_ITEM_FILE = PATH_TO_PIC_FOLDER + ITEM_FILE_NAME;
+    public static final String PATH_TO_VERIFY_DROP_FILE = PATH_TO_PIC_FOLDER + VERIFY_DROP_FILE_NAME;
+    public static final String PATH_TO_DELETE_ITEM_FILE = PATH_TO_PIC_FOLDER + DELETE_ITEM_FILE_NAME;
 
     public static String getSubCategoryId() {
         switch (SUB_CATEGORY_NAME) {

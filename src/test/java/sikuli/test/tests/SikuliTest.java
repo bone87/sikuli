@@ -31,9 +31,9 @@ public class SikuliTest extends BaseTest {
 
         logger.step(5);
         logger.info("Select drag and drop item and move to the work space");
-        FurnitureItem furnitureItem = new FurnitureItem(new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + ConfigReader.ITEM_FILE_NAME),
-                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + ConfigReader.VERIFY_DROP_FILE_NAME),
-                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + ConfigReader.DELETE_ITEM_FILE_NAME));
+        FurnitureItem furnitureItem = new FurnitureItem(new SikuliElement(ConfigReader.PATH_TO_ITEM_FILE),
+                                      new SikuliElement(ConfigReader.PATH_TO_VERIFY_DROP_FILE),
+                                      new SikuliElement(ConfigReader.PATH_TO_DELETE_ITEM_FILE));
         MainArea mainArea = new MainArea();
         mainArea.dropFurnitureItemToAreaCenter(furnitureItem);
 
