@@ -1,11 +1,12 @@
 package sikuli.test.tests;
 
-import org.testng.Assert;
 import sikuli.test.tests.forms.MainForm;
 import sikuli.test.tests.forms.ProductProperties;
 import sikuli.test.tests.forms.SceneProperties;
 import sikuli.test.tests.utils.ConfigReader;
+import sikulidriver.FurnitureItem;
 import sikulidriver.MainArea;
+import sikulidriver.SikuliElement;
 import webdriver.BaseTest;
 
 public class SikuliTest extends BaseTest {
@@ -30,25 +31,28 @@ public class SikuliTest extends BaseTest {
 
         logger.step(5);
         logger.info("Select drag and drop item and move to the work space");
-        MainArea mainArea = new MainArea(ConfigReader.PATH_TO_PIC_FOLDER);
-        mainArea.dropTableToCenter();
+        FurnitureItem furnitureItem = new FurnitureItem(new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + "furnitureItem.png"),
+                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + "verifyDropFurnitureItem.png"),
+                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + "btnDeleteFurnitureItem.png"));
+        MainArea mainArea = new MainArea();
+        mainArea.dropFurnitureItemToAreaCenter(furnitureItem);
 
         logger.step(6);
         logger.info("Check for element is correctly displayed on the work space");
-        assertEquals("Item hasn't displayed on work space", mainArea.isItemMovedToWorkSpace(), true);
+        assertEquals("Item hasn't displayed on work space", mainArea.isItemMovedToWorkSpace(furnitureItem), true);
 
         logger.step(7);
         logger.info("Click the element and check data");
-        mainArea.selectItemOnWorkSpace();
+        mainArea.selectFurnitureItemOnWorkSpace(furnitureItem);
         ProductProperties productProperties = new ProductProperties();
         productProperties.assertProductPropertiesAreNotEmpty();
 
         logger.step(8);
         logger.info("Delete element");
-        mainArea.deteteItem();
+        mainArea.deleteFurnitureItemFromWorkSpace(furnitureItem);
         SceneProperties sceneProperties = new SceneProperties();
         sceneProperties.assertSceneItemsAreEmpty();
-        assertEquals("Item has displayed on work space", mainArea.isItemMovedToWorkSpace(), false);
+        assertEquals("Item has displayed on work space", mainArea.isItemMovedToWorkSpace(furnitureItem), false);
 
     }
 }

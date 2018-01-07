@@ -4,11 +4,11 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
 
-class SikuliElement {
+public class SikuliElement {
     private final String pathToPic;
     private final Screen screen = new Screen();
 
-    SikuliElement(String pathToPic) {
+    public SikuliElement(String pathToPic) {
         this.pathToPic = pathToPic;
     }
 
