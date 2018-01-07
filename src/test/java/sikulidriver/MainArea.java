@@ -1,5 +1,6 @@
 package sikulidriver;
 
+import sikuli.test.tests.models.FurnitureItem;
 import sikuli.test.tests.utils.ConfigReader;
 
 public class MainArea {

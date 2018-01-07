@@ -1,5 +1,7 @@
-package sikulidriver;
+package sikuli.test.tests.models;
 
+
+import sikulidriver.SikuliElement;
 
 public class FurnitureItem {
     private SikuliElement itemImage;
@@ -12,15 +14,15 @@ public class FurnitureItem {
         this.deleteItemFromWorkPlaceImage = deleteItemFromWorkPlaceImage;
     }
 
-    SikuliElement getItemImage() {
+    public SikuliElement getItemImage() {
         return itemImage;
     }
 
-    SikuliElement getItemOnWorkPlaceImage() {
+    public SikuliElement getItemOnWorkPlaceImage() {
         return itemOnWorkPlaceImage;
     }
 
-    SikuliElement getDeleteItemFromWorkPlaceImage() {
+    public SikuliElement getDeleteItemFromWorkPlaceImage() {
         return deleteItemFromWorkPlaceImage;
     }
 }

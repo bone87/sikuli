@@ -4,7 +4,7 @@ import sikuli.test.tests.forms.MainForm;
 import sikuli.test.tests.forms.ProductProperties;
 import sikuli.test.tests.forms.SceneProperties;
 import sikuli.test.tests.utils.ConfigReader;
-import sikulidriver.FurnitureItem;
+import sikuli.test.tests.models.FurnitureItem;
 import sikulidriver.MainArea;
 import sikulidriver.SikuliElement;
 import webdriver.BaseTest;
@@ -31,9 +31,9 @@ public class SikuliTest extends BaseTest {
 
         logger.step(5);
         logger.info("Select drag and drop item and move to the work space");
-        FurnitureItem furnitureItem = new FurnitureItem(new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + "furnitureItem.png"),
-                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + "verifyDropFurnitureItem.png"),
-                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + "btnDeleteFurnitureItem.png"));
+        FurnitureItem furnitureItem = new FurnitureItem(new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + ConfigReader.ITEM_FILE_NAME),
+                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + ConfigReader.VERIFY_DROP_FILE_NAME),
+                                      new SikuliElement(ConfigReader.PATH_TO_PIC_FOLDER + ConfigReader.DELETE_ITEM_FILE_NAME));
         MainArea mainArea = new MainArea();
         mainArea.dropFurnitureItemToAreaCenter(furnitureItem);
 

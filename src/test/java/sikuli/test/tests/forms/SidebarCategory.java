@@ -6,7 +6,7 @@ import webdriver.BaseForm;
 import webdriver.elements.Button;
 
 public class SidebarCategory extends BaseForm {
-    private static String BTN_SUB_CATEGORY_STRING_LOCATOR = "//a[@id='%s']";
+    private static final String BTN_SUB_CATEGORY_STRING_LOCATOR = "//a[@id='%s']";
     SidebarCategory(String subCategoryName) {
         super(By.xpath(String.format(BTN_SUB_CATEGORY_STRING_LOCATOR, subCategoryName)), String.format("sidebar category with link id=%s", subCategoryName));
     }
