@@ -53,5 +53,6 @@ public class SikuliTest extends BaseTest {
         SceneProperties sceneProperties = new SceneProperties();
         sceneProperties.assertSceneItemsAreEmpty();
         assertEquals("Item has displayed on work space", mainArea.isItemMovedToWorkSpace(furnitureItem), false);
+
     }
 }
