@@ -7,10 +7,14 @@ import webdriver.elements.Button;
 
 public class WelcomeWindow extends BaseForm {
 
-    public final Button btnClose = new Button(By.xpath("//div[@id='popin-content-holder']/a[@class='popin-close-title']"), "close window");
+    private final Button btnClose = new Button(By.xpath("//div[@id='popin-content-holder']/a[@class='popin-close-title']"), "close window");
 
-    public WelcomeWindow() {
+    WelcomeWindow() {
         super(By.xpath("//div[@id='popin-content-holder']"), "welcome window");
     }
 
+    public void closeWelcomeWindow() {
+        btnClose.clickAndWait();
+    }
 }
+

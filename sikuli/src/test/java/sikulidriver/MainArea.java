@@ -1,49 +1,37 @@
 package sikulidriver;
 
-import org.testng.Assert;
+import sikuli.test.tests.models.FurnitureItem;
+import sikuli.test.tests.utils.ConfigReader;
 
 public class MainArea {
-    private SikuliElement tableItem;
-    private SikuliElement screenCenter;
-    private SikuliElement btnClose;
-    private SikuliElement itemOnWorkSpace;
+    private SikuliElement areaCenterImage = new SikuliElement(ConfigReader.PATH_TO_MAIN_AREA_CENTER_FILE);
 
-    public MainArea(String path_to_pic_folder) {
-        Assert.assertNotNull(path_to_pic_folder, "Missing the path to pic folder");
-        tableItem = new SikuliElement(path_to_pic_folder.concat("item.png"), "item");
-        screenCenter = new SikuliElement(path_to_pic_folder.concat("center.png"), "screen center");
-        btnClose = new SikuliElement(path_to_pic_folder.concat("btnClose.png"), "button close");
-        itemOnWorkSpace = new SikuliElement(path_to_pic_folder.concat("verifyDrop.png"), "item on work space");
+    /**
+     * Drag 'FurnitureItem' and drop to 'areaCenter'
+     **/
+    public void dropFurnitureItemToAreaCenter(FurnitureItem furnitureItem) {
+        furnitureItem.getItemImage().dragItem();
+        furnitureItem.getItemImage().dropItemAt(areaCenterImage.getItem());
     }
 
     /**
-     * Drag 'tableItem' and drop to 'screenCenter'
+     * Clicking at 'FurnitureItemOnWorkSpace'
      **/
-    public void dropTableToCenter() {
-        tableItem.dragItem();
-        tableItem.dropItemAt(screenCenter.getItem());
+    public void selectFurnitureItemOnWorkSpace(FurnitureItem furnitureItem) {
+        furnitureItem.getItemOnWorkPlaceImage().clickItem();
     }
 
     /**
-     * Clicking at 'itemOnWorkSpace'
+     * Delete 'FurnitureItemOnWorkSpace' - clicking 'btnClose'
      **/
-    public void selectItemOnWorkSpace() {
-        itemOnWorkSpace.clickItem();
-    }
-
-    /**
-     * Delete 'itemOnWorkSpace' - clicking 'btnClose'
-     **/
-    public void deteteItem() {
-        btnClose.clickItem();
+    public void deleteFurnitureItemFromWorkSpace(FurnitureItem furnitureItem) {
+        furnitureItem.getDeleteItemFromWorkPlaceImage().clickItem();
     }
 
     /**
      * Check if 'itemOnWorkSpace' is displayed on work space
      **/
-    public boolean isItemMovedToWorkSpace() {
-        return itemOnWorkSpace.isItemDisplay();
+    public boolean isItemMovedToWorkSpace(FurnitureItem furnitureItem) {
+        return furnitureItem.getItemOnWorkPlaceImage().isItemDisplay();
     }
-
-
 }

@@ -6,18 +6,16 @@ import org.sikuli.script.Screen;
 
 public class SikuliElement {
     private final String pathToPic;
-    private final String text;
     private final Screen screen = new Screen();
 
-    public SikuliElement(String pathToPic, String text) {
+    public SikuliElement(String pathToPic) {
         this.pathToPic = pathToPic;
-        this.text = text;
     }
 
     /**
      * Find item and return
      **/
-    public Region getItem() {
+    Region getItem() {
         try {
             return screen.find(pathToPic);
         } catch (FindFailed findFailed) {
@@ -29,7 +27,7 @@ public class SikuliElement {
     /**
      * Drag item
      **/
-    public void dragItem() {
+    void dragItem() {
         try {
             getItem().drag(pathToPic);
         } catch (FindFailed findFailed) {
@@ -40,7 +38,7 @@ public class SikuliElement {
     /**
      * Drop item to another item
      **/
-    public void dropItemAt(Region item) {
+    void dropItemAt(Region item) {
         try {
             getItem().dropAt(item);
         } catch (FindFailed findFailed) {
@@ -51,19 +49,15 @@ public class SikuliElement {
     /**
      * Click to item
      **/
-    public void clickItem() {
+    void clickItem() {
         getItem().click();
     }
 
     /**
      * Check if item is displayed
      **/
-    public boolean isItemDisplay() {
-        try {
-            getItem();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    boolean isItemDisplay() {
+        return getItem() != null;
+
     }
 }

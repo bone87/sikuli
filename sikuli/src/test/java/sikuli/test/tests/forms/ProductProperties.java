@@ -8,21 +8,21 @@ import webdriver.CommonFunctions;
 import webdriver.elements.Label;
 
 public class ProductProperties extends BaseForm {
-    private final Label productName = new Label(By.xpath("//div[@id='view-component-info']//div[@class='component-data available']//p[@class='name']"), "product name");
-    private final Label productDimension = new Label(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "product dimensions");
-    private final String patternWidth = "W(.+) m ";
-    private final String patternDepth = "D(.+) m$";
-    private final String patternHeight = "^H(.+) m x W";
+    private final Label lblProductName = new Label(By.xpath("//div[@id='view-component-info']//div[@class='component-data available']//p[@class='name']"), "product name");
+    private final Label lblProductDimension = new Label(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "product dimensions");
 
     public ProductProperties() {
         super(By.xpath("//div[@id='view-component-info']//p[@class='dimensions']"), "product properties");
     }
 
     private Product getProduct() {
-        String name = productName.getText();
-        String dimensions = productDimension.getText();
+        String name = lblProductName.getText();
+        String dimensions = lblProductDimension.getText();
+        String patternWidth = "W(.+) m ";
         float width = getValueOfDimension(patternWidth, dimensions);
+        String patternDepth = "D(.+) m$";
         float depth = getValueOfDimension(patternDepth, dimensions);
+        String patternHeight = "^H(.+) m x W";
         float height = getValueOfDimension(patternHeight, dimensions);
         return new Product(name, width, depth, height);
     }
