@@ -545,7 +545,7 @@ public abstract class BaseElement extends BaseEntity {
     /**
      * set value via javascript <b>document.getElementById('%1$s').value='%2$s' </b>
      *
-     * @param elementId Element Id
+     * @param elementId SikuliElement Id
      * @param value     Value
      */
     public void setValueViaJS(final String elementId, final String value) {

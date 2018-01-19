@@ -18,7 +18,7 @@ public class RadioButton extends BaseElement {
 
 	/**
 	 * Returns element type name
-	 * @return Element type name
+	 * @return SikuliElement type name
 	 */
 	protected String getElementType() {
 		return getLoc("loc.radio");
